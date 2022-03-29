@@ -62,9 +62,9 @@ layout = [[sg.Text('Вариант 8', font='Any 18')],
           [sg.Push()],
           [sg.Button('Решить задачу'), sg.Button('Cancel')], ]
 
-dispatch_dictionary = {'scipy': Solution_scipy, 'Algo': Solution_algo}
+dispatch_dictionary = {'Scipy': Solution_scipy, 'Algorithm': Solution_algo}
 
-window = sg.Window('Window Title', layout)
+window = sg.Window(':0', layout)
 temp = 0
 func_to_call = None
 while True:
@@ -76,9 +76,9 @@ while True:
         temp = 1
         print('#Debug#: Выбрано решение ', event)
     if event == 'Решить задачу':
-        if all(list(values.values())[:18]) and temp:
+        if all(list(values.values())[:11]) and temp:
             print("#Debug#: Решаем")
-            result = func_to_call(list(values.values())[:12])
+            result = func_to_call(list(values.values())[:11])
             sg.popup(result)
         else:
             sg.popup_ok("Не все значения введены или не выбран тип решения")
